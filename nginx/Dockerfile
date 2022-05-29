@@ -10,3 +10,8 @@ ENV PATH ${PATH}:/usr/local/go/bin:${GOPATH}/bin
 
 # Install minica
 RUN go install github.com/jsha/minica@v1.0.2
+
+# Make certs
+RUN mkdir -p /etc/nginx/certs \
+    && cd /etc/nginx/certs \
+    && minica --domains test.test
