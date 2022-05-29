@@ -1,4 +1,18 @@
 services:
   nginx:
+    image: nginx-reverse-proxy-with-minica/nginx
     build:
       context: ./nginx
+    volumes:
+      - ./nginx/templates:/etc/nginx/templates:ro
+    ports:
+      - target: 80
+        host_ip: 127.0.0.1
+        published: 80
+        protocol: tcp
+        mode: host
+      - target: 443
+        host_ip: 127.0.0.1
+        published: 443
+        protocol: tcp
+        mode: host
