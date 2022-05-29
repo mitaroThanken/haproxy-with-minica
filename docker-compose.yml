@@ -16,3 +16,14 @@ services:
         published: 443
         protocol: tcp
         mode: host
+    depends_on:
+      - sample
+  sample:
+    image: nginx-reverse-proxy-with-minica/sample
+    build:
+      context: ./sample/.devcontainer
+      args:
+        - VARIANT=16-bullseye
+    volumes:
+      - .:/workspaces:cached
+    command: /bin/sh -c "while sleep 1000; do :; done"
