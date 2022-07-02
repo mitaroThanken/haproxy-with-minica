@@ -1,10 +1,8 @@
 services:
-  nginx:
-    image: nginx-reverse-proxy-with-minica/nginx
+  haproxy:
+    image: haproxy-with-minica/haproxy
     build:
-      context: ./nginx
-    volumes:
-      - ./nginx/templates:/etc/nginx/templates:ro
+      context: ./haproxy
     ports:
       - target: 80
         host_ip: 127.0.0.1
@@ -19,7 +17,7 @@ services:
     depends_on:
       - sample
   sample:
-    image: nginx-reverse-proxy-with-minica/sample
+    image: haproxy-with-minica/sample
     build:
       context: ./sample/.devcontainer
       args:
