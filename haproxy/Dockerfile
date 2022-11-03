@@ -26,6 +26,7 @@ RUN go install github.com/jsha/minica@v1.0.2
 RUN mkdir -p /usr/local/etc/haproxy/certs \
     && cd /usr/local/etc/haproxy/certs \
     && minica --domains test.test \
+    && openssl x509 -inform PEM -in minica.pem -out minica.crt \
     && cd test.test \
     && cat cert.pem key.pem > test.test.pem \
     && cd .. \

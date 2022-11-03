@@ -11,6 +11,6 @@ docker container cp haproxy-with-minica-haproxy-1:/usr/local/etc/haproxy/certs -
 Install trusted root certification
 ---
 
-Install `certs/minica.pem` to Trusted Root Certification Authorities.
+Install `certs/minica.crt` to Trusted Root Certification Authorities.
 
 (WIP)
