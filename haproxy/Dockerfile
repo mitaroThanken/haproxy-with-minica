@@ -1,4 +1,4 @@
-FROM haproxy:2.6
+FROM haproxy:2.7
 
 # be root
 USER root
@@ -11,7 +11,7 @@ RUN apt-get update \
     && apt-get clean
 
 # Install Go
-ENV GOVERSION 1.18.3
+ENV GOVERSION 1.19.5
 RUN rm -rf /usr/local/go \
     && curl -L -O https://go.dev/dl/go${GOVERSION}.linux-amd64.tar.gz \
     && tar -C /usr/local -xzf go${GOVERSION}.linux-amd64.tar.gz \
