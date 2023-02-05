@@ -24,7 +24,8 @@ export default defineConfig({
       targets: [
         '>0.2%',
         'not dead',
-        'not op_mini all'
+        'not op_mini all',
+        'IE 11'
       ]
     })],
   server: {
