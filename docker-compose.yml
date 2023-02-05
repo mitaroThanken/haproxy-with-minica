@@ -21,7 +21,7 @@ services:
     build:
       context: ./sample/.devcontainer
       args:
-        - VARIANT=16-bullseye
+        - VARIANT=18-bullseye
     volumes:
       - .:/workspaces:cached
     command: /bin/sh -c "while sleep 1000; do :; done"
