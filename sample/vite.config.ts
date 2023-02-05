@@ -2,6 +2,7 @@ import { CorsOptions, defineConfig } from 'vite'
 import react from '@vitejs/plugin-react-swc'
 import fs from 'fs';
 import { SecureContextOptions } from 'tls';
+import legacy from '@vitejs/plugin-legacy';
 
 const HOST = 'sample';
 const PORT = 5173;
@@ -17,7 +18,16 @@ const CORS_OPTION: CorsOptions = {
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  plugins: [react()],
+  plugins: [
+    react(),
+    legacy({
+      targets: [
+        '>0.2%',
+        'not dead',
+        'not op_mini all',
+        'IE 11'
+      ]
+    })],
   server: {
     host: HOST,
     origin: `${PROTOCOL}${FQDN}`,
