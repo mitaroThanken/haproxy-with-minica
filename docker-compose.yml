@@ -3,6 +3,7 @@ services:
     image: haproxy-with-minica/haproxy
     build:
       context: ./haproxy
+      target: haproxy
     ports:
       - target: 80
         host_ip: 127.0.0.1
