@@ -4,6 +4,8 @@ services:
     build:
       context: ./haproxy
       target: haproxy
+      args:
+        - VHOST_FQDN=${VHOST_NAME:-test}.test
     ports:
       - target: 80
         host_ip: 127.0.0.1
@@ -25,4 +27,6 @@ services:
         - VARIANT=18-bullseye
     volumes:
       - .:/workspaces:cached
+    environment:
+      - VHOST_FQDN=${VHOST_NAME:-test}.test
     command: /bin/sh -c "while sleep 1000; do :; done"
