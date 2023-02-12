@@ -1,6 +1,11 @@
 HAProxy with jsha/minica
 ===
 
+Modify virtual host's name
+---
+
+Edit `VHOST_NAME` in `.env` file.
+
 Export certs
 ---
 
