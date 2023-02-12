@@ -6,14 +6,14 @@ import legacy from '@vitejs/plugin-legacy';
 
 const HOST = 'sample';
 const PORT = 5173;
+const VHOST_FQDN = process.env.VHOST_FQDN !== undefined ? process.env.VHOST_FQDN : "test.test";
 const HTTPS_OPTIONS: SecureContextOptions = {
-  key: fs.readFileSync('../certs/test.test/key.pem'),
-  cert: fs.readFileSync('../certs/test.test/cert.pem')
+  key: fs.readFileSync(`../certs/${VHOST_FQDN}/key.pem`),
+  cert: fs.readFileSync(`../certs/${VHOST_FQDN}/cert.pem`)
 };
-const FQDN = 'test.test';
 const PROTOCOL = 'https://';
 const CORS_OPTION: CorsOptions = {
-  origin: `${PROTOCOL}${FQDN}`
+  origin: `${PROTOCOL}${VHOST_FQDN}`
 }
 
 // https://vitejs.dev/config/
@@ -30,10 +30,10 @@ export default defineConfig({
     })],
   server: {
     host: HOST,
-    origin: `${PROTOCOL}${FQDN}`,
+    origin: `${PROTOCOL}${VHOST_FQDN}`,
     https: HTTPS_OPTIONS,
     hmr: {
-      host: FQDN,
+      host: VHOST_FQDN,
       port: PORT
     },
     strictPort: true,
