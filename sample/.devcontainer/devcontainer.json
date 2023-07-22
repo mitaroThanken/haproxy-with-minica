@@ -4,6 +4,9 @@
 	"name": "Node.js & TypeScript",
 	"dockerComposeFile": "../../docker-compose.yml",
 	"service": "sample",
+	"features": {
+		"ghcr.io/devcontainers/features/java:1": {}
+	},
 	"workspaceFolder": "/workspaces/sample",
 	"shutdownAction": "none",
 
