@@ -1,3 +1,6 @@
+# HAProxy version
+ARG HAPROXY_VERSION=2.8
+
 FROM golang:latest AS certs
 
 # Virtual host's FQDN
@@ -16,7 +19,7 @@ RUN mkdir -p /certs \
     && cd .. \
     && chmod go-rwx -R .
 
-FROM haproxy:2.7 AS haproxy
+FROM haproxy:${HAPROXY_VERSION} AS haproxy
 
 # Virtual host's FQDN
 ARG VHOST_FQDN=test.test
