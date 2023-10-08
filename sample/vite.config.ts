@@ -6,6 +6,7 @@ import legacy from '@vitejs/plugin-legacy';
 
 const HOST = 'sample';
 const PORT = 5173;
+const HMR_PORT = 5174;
 const VHOST_FQDN = process.env.VHOST_FQDN !== undefined ? process.env.VHOST_FQDN : "test.test";
 const HTTPS_OPTIONS: SecureContextOptions = {
   key: fs.readFileSync(`../certs/${VHOST_FQDN}/key.pem`),
@@ -33,8 +34,9 @@ export default defineConfig({
     origin: `${PROTOCOL}${VHOST_FQDN}`,
     https: HTTPS_OPTIONS,
     hmr: {
-      host: VHOST_FQDN,
-      port: PORT
+      path: "/hmr",
+      port: HMR_PORT,
+      clientPort: 443
     },
     strictPort: true,
     cors: CORS_OPTION

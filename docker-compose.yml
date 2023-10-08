@@ -6,6 +6,10 @@ services:
       target: haproxy
       args:
         - VHOST_FQDN=${VHOST_NAME:-test}.test
+    networks:
+      default:
+        aliases:
+          - ${VHOST_NAME:-test}.test
     ports:
       - target: 80
         host_ip: 127.0.0.1
