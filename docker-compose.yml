@@ -6,6 +6,9 @@ services:
       target: haproxy
       args:
         - VHOST_FQDN=${VHOST_NAME:-test}.test
+    networks:
+      default:
+        ipv4_address: 10.0.0.2
     ports:
       - target: 80
         host_ip: 127.0.0.1
@@ -35,4 +38,15 @@ services:
     image: haproxy-with-minica/sample2
     build:
       context: ./sample2
+    extra_hosts:
+      - "${VHOST_NAME:-test}.test:10.0.0.2"
     command: /bin/sh -c "while sleep 1000; do :; done"
+networks:
+  default:
+    driver: bridge
+    ipam:
+      driver: default
+      config:
+        - subnet: 10.0.0.0/8
+          ip_range: 10.128.0.0/9
+          gateway: 10.0.0.1
