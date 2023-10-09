@@ -1,23 +1,7 @@
 # HAProxy version
 ARG HAPROXY_VERSION=2.8
 
-FROM golang:latest AS certs
-
-# Virtual host's FQDN
-ARG VHOST_FQDN=test.test
-
-# Install minica
-RUN go install github.com/jsha/minica@v1.0.2
-
-# Make certs
-RUN mkdir -p /certs \
-    && cd /certs \
-    && minica --domains ${VHOST_FQDN} \
-    && openssl x509 -inform PEM -in minica.pem -out minica.crt \
-    && cd ${VHOST_FQDN} \
-    && cat cert.pem key.pem > ${VHOST_FQDN}.pem \
-    && cd .. \
-    && chmod go-rwx -R .
+FROM haproxy-with-minica/certs:latest as certs
 
 FROM haproxy:${HAPROXY_VERSION} AS haproxy
 
