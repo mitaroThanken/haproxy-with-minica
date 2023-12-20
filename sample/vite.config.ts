@@ -24,11 +24,6 @@ export default defineConfig({
     host: HOST,
     origin: ORIGIN,
     https: HTTPS_OPTIONS,
-    hmr: {
-      path: '/hmr',
-      port: HMR_PORT,
-      clientPort: 443,
-    },
     strictPort: true,
     cors: CORS_OPTION,
   },
