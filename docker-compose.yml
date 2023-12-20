@@ -29,7 +29,7 @@ services:
     build:
       context: ./sample/.devcontainer
       args:
-        - VARIANT=18-bullseye
+        - VARIANT=20-bullseye
     volumes:
       - .:/workspaces:cached
     environment:
