@@ -2,7 +2,7 @@
 // https://github.com/microsoft/vscode-dev-containers/tree/v0.245.2/containers/typescript-node
 {
 	"name": "Node.js & TypeScript",
-	"dockerComposeFile": "../../docker-compose.yml",
+	"dockerComposeFile": "../../compose.yml",
 	"service": "sample",
 	"workspaceFolder": "/workspaces/sample",
 	"shutdownAction": "none",

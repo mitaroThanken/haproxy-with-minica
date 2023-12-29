@@ -1,20 +1,16 @@
-HAProxy with jsha/minica
-===
+# HAProxy with jsha/minica
 
-Modify virtual host's name
----
+## Modify virtual host's name
 
 Edit `VHOST_NAME` in `.env` file.
 
-Make certs
----
+## Make certs
 
 ```shell
 docker buildx build --build-arg $(tail -n1 .env) -t haproxy-with-minica/certs certs/
 ```
 
-Export certs
----
+## Export certs
 
 ```shell
 docker compose up -d --build
@@ -28,9 +24,14 @@ docker container cp haproxy-with-minica-haproxy-1:/usr/local/etc/haproxy/certs -
 docker compose down
 ```
 
-Install trusted root certification
----
+## Install trusted root certification
 
 Install `certs/minica.crt` to Trusted Root Certification Authorities.
+
+## Prebuild dev container images
+
+See [devcontainers-image-prebuild/README.md](./devcontainers-image-prebuild/README.md).
+
+---
 
 (WIP)
