@@ -1,10 +1,10 @@
-# Prebuild Dev Container images
+# Prebuild dev container images
 
-cf. https://containers.dev/guide/prebuild
+cf. <https://containers.dev/guide/prebuild>
 
-1. Open this dir in Dev Container.
+1. Open this dir in dev container.
 
-1. Define custom Dev Container.
+1. Define custom dev containers.
 
     See [typescript-node-with-java](./typescript-node-with-java/).
 
@@ -46,6 +46,16 @@ cf. https://containers.dev/guide/prebuild
     {"outcome":"success","imageName":["haproxy-with-minica/typescript-node-with-java:20231229-0504"]}
     ```
 
-1. Use built image.
+1. Test built images.
 
-    See [../compose.yml](../compose.yml).
+    Temporarily change [../compose.yml](../compose.yml) to use the created images and try to use them.
+
+1. Tag latest tag to built images.
+
+    example:
+
+    ```shell
+    docker tag haproxy-with-minica/typescript-node-with-java:20231229-0504 haproxy-with-minica/typescript-node-with-java:latest
+    ```
+
+1. Revert temporary compose.yml change.
