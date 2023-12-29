@@ -25,11 +25,7 @@ services:
       - sample
       - sample2
   sample:
-    image: haproxy-with-minica/sample
-    build:
-      context: ./sample/.devcontainer
-      args:
-        - VARIANT=20-bullseye
+    image: ghcr.io/mitarothanken/haproxy-with-minica/devcontainers/typescript-node-with-java:20231229-0647
     volumes:
       - .:/workspaces:cached
     environment:
