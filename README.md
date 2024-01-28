@@ -30,7 +30,7 @@ Install `certs/minica.crt` to Trusted Root Certification Authorities.
 
 ## Prebuild dev container images
 
-See [devcontainers-image-prebuild/README.md](./devcontainers-image-prebuild/README.md).
+See [devcontainer-images-prebuild/README.md](./devcontainer-images-prebuild/README.md).
 
 ---
 
